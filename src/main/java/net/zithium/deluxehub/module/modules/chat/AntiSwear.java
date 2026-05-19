@@ -46,6 +46,10 @@ public class AntiSwear extends Module {
     }
 
     private void handleSwearCheck(Player player, String message, Runnable cancelAction) {
+        if (blockedWords == null || blockedWords.isEmpty()) {
+            return;
+        }
+
         if (player.hasPermission(Permissions.ANTI_SWEAR_BYPASS.getPermission())) {
             return;
         }
